@@ -1,26 +1,28 @@
-import { useState } from 'react';
+import React, { useState } from "react";
 
 const TodoForm = ({ addTodo }) => {
-  const [value, setValue] = useState('');
-  const [category, setCategory] = useState('');
+  const [value, setValue] = useState("");
+  const [category, setCategory] = useState("");
+  const [date, setDate] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!value || !category) return;
-    addTodo(value, category);
-    setValue('');
-    setCategory('');
+    if (!value || !category || !date) return;
+    addTodo(value, category, date);
+    setValue("");
+    setCategory("");
+    setDate("");
 
-    console.log(value, category);
+    console.log(value, category, date);
   };
 
   return (
     <div className="todo-form">
-      <h2>Criar Tarefa</h2>
+      <h2>Criação de Lembretes</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Digite o titulo"
+          placeholder="Digite um novo lembrete"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
@@ -30,7 +32,14 @@ const TodoForm = ({ addTodo }) => {
           <option value="Pessoal">Pessoal</option>
           <option value="Estudos">Estudos</option>
         </select>
-        <button type="submit">Criar Tarefa</button>
+
+        <input
+          type="date"
+          placeholder="Selecione uma data"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+        <button type="submit">Criar Lembrete</button>
       </form>
     </div>
   );

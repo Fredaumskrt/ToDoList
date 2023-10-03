@@ -1,36 +1,41 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 
 import "./App.css";
 import Todo from "./components/Todo";
-import TodoForm from "./components/TodoForm"; 
+import TodoForm from "./components/TodoForm";
 import Search from "./components/Search";
 
-
+// Inicialmente, a construcao dos modelos que irao aparecer quando um novo lembrete for adicionad
 function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      text: "Criar funcionalidade x no sistema",
+      text: "Fazer teste unitario do GT",
       category: "Trabalho",
       isCompleted: false,
+      date: "2023-10-04",
     },
     {
       id: 2,
       text: "Ir pra academia",
       category: "pessoal",
       isCompleted: false,
+      date: "2023-10-14",
     },
     {
       id: 3,
-      text: "Estudar react",
+      text: "Estudar .net e node js",
       category: "Estudos",
       isCompleted: false,
+      date: "2023-10-11",
     },
   ]);
 
   const [search, setSearch] = useState("");
 
-  const addTodo = (text, category) => {
+  // Adicionar novos lembretes (addTodo) !!!!!!!!!!!
+
+  const addTodo = (text, category, date) => {
     const newTodos = [
       ...todos,
       {
@@ -38,33 +43,48 @@ function App() {
         text,
         category,
         isCompleted: false,
+        date,
       },
     ];
-    setTodos(newTodos); 
+    setTodos(newTodos);
   };
 
+  // Remover lembretes (removeTodo) !!!!!!!!!!!
   const removeTodo = (id) => {
-    const newTodos = [...todos]
-    const filteredTodos = newTodos.filter((todo) => todo.id !== id? todo : null);
+    const newTodos = [...todos];
+    const filteredTodos = newTodos.filter((todo) =>
+      todo.id !== id ? todo : null
+    );
     setTodos(filteredTodos);
   };
 
+  // Marcar lembretes como completos!!!!!!!!
   const completeTodo = (id) => {
-    const newTodos = [...todos]
-    newTodos.map((todo) => todo.id === id? todo.isCompleted = !todo.isCompleted : todo)
+    const newTodos = [...todos];
+    newTodos.map((todo) =>
+      todo.id === id ? (todo.isCompleted = !todo.isCompleted) : todo
+    );
     setTodos(newTodos);
-  }
+  };
 
   return (
     <div className="app">
-      <h1>Lista de Tarefas</h1>
-      <Search search = {search} setSearch={setSearch}/>
-      
+      <h1>Criação de Lembretes</h1>
+      <Search search={search} setSearch={setSearch} />
+
       <div className="todo-list">
-        {todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
-        .map((todo) => (
-          <Todo key={todo.id} todo={todo} removeTodo={removeTodo} completeTodo={completeTodo} />
-        ))}
+        {todos
+          .filter((todo) =>
+            todo.text.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((todo) => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              removeTodo={removeTodo}
+              completeTodo={completeTodo}
+            />
+          ))}
       </div>
       <TodoForm addTodo={addTodo} />
     </div>
