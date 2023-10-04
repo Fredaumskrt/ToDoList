@@ -18,3 +18,9 @@ Possui três campos: 1- adicionar o lembrete que deseja, 2- Selecionar a Categor
 A criação inicia a partir do momento que clica em " Criar Lembrete"
 
 
+Como Executar?
+
+Abra o projeto no vscode > botão esquerdo no 'Explorador de arquivos' > Open in Integrated Terminal > e rode
+o comando " npm run dev ", e abra o link que ele fornecer. Algo do tipo " localhost.5573"!!
+
+
