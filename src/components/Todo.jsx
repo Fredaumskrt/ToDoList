@@ -1,28 +1,31 @@
 import React from "react";
 
 const Todo = ({ todo, removeTodo, completeTodo }) => {
-  // ---------------------- 
-  // Centralizacao dos botoes "Concluir" e "X"
-  const buttonContainerStyle = {
-    display: "flex",
-    justifyContent: "flex-end",
+  const textStyle = {
+    // Condicao com operador ternario para analisar se a tarefa foi concluida, se tiver, passe um line-through!!!!
+    textDecoration: todo.isCompleted ? "line-through" : "none",
   };
-// --------------------------
 
-
-  return ( 
+  return (
     <div
       className={`todo ${todo.isCompleted ? "completed" : ""}`}
       key={todo.id}
+
+      //Container para botao e texto, para que nao haja quebra de responsividade!!!!!
     >
-      <p>{todo.text}</p>
-      <p>Categoria: {todo.category}</p>
-      {todo.date && <p>Data: {todo.date}</p>}
-      <div style={buttonContainerStyle}>
+      <div className="containerText">
+        <p style={textStyle}>{todo.text}</p>
+        <p>Categoria: {todo.category}</p>
+        {todo.date && <p>Data: {todo.date}</p>}
+      </div>
+
+      <div className="containerButton">
         <button onClick={() => completeTodo(todo.id)}>
           {todo.isCompleted ? "Desfazer" : "Concluir"}
         </button>
-        <button onClick={() => removeTodo(todo.id)}>X</button>
+        <button className="remove" onClick={() => removeTodo(todo.id)}>
+          X
+        </button>
       </div>
     </div>
   );

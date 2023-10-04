@@ -5,10 +5,16 @@ import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import Search from "./components/Search";
 
+/*
+
 // Inicialmente, a construcao dos modelos que irao aparecer quando um novo lembrete for adicionad
+
+*/
 function App() {
   const [todos, setTodos] = useState([
+  
     {
+    
       id: 1,
       text: "Fazer teste unitario do GT",
       category: "Trabalho",
@@ -18,7 +24,7 @@ function App() {
     {
       id: 2,
       text: "Ir pra academia",
-      category: "pessoal",
+      category: "Pessoal",
       isCompleted: false,
       date: "2023-10-14",
     },
@@ -42,7 +48,7 @@ function App() {
         id: Math.floor(Math.random() * 10000),
         text,
         category,
-        isCompleted: false,
+        isCompleted: false, // booleano para marcar se concluido ou nao
         date,
       },
     ];
@@ -66,6 +72,13 @@ function App() {
     );
     setTodos(newTodos);
   };
+
+  /*
+  -------------------------- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --------------------------
+ 
+           A caixa do filter, mesmo sendo digitada em upperCase(Maiuscula), e´ passada para lowerCase (Minuscula), para facilitar a busca!!!!!!
+ 
+     */
 
   return (
     <div className="app">

@@ -5,6 +5,8 @@ const TodoForm = ({ addTodo }) => {
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
 
+
+  // Campos de validacao dos lembretes que forem inseridos, se forem nulos nao fazem nada!!!!
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!value || !category || !date) return;

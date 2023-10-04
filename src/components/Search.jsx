@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Funcao extra para pesquisar lembretes existentes e ou adicionados !!!!!!
+
 const Search = ({ search, setSearch }) => {
   return (
     <div className="search">

@@ -1,0 +1,20 @@
+Instruções de Uso - ToDo List
+
+Primeiramente temos a interface de 'Criação de Lembretes, nela você poderá
+criar lembretes, marcar os lembretes que já foram concluidos e até apagar algum caso
+não tenha interesse de ir mais ou o compromisso tenha sido desmarcado!!!
+
+PESQUISAR:
+Campo de pesquisar algum dos lembretes já adicionados, ou até mesmo, já concluidos
+mas não excluidos!
+
+Modelos de lembretes:
+Três Modelos exemplos, assim ficará os modelos que forem adicionados!
+Podendo excluir "X", ou "Concluir", nos botões a frente!
+
+Criação de Lembretes:
+Possui três campos: 1- adicionar o lembrete que deseja, 2- Selecionar a Categoria,
+3- Informar a data.
+A criação inicia a partir do momento que clica em " Criar Lembrete"
+
+
